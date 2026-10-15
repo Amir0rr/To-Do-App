@@ -8,14 +8,30 @@ let tasks = [
 const renderTasks = () => {
   taskList.innerHTML = "";
   tasks.forEach((task) => {
+    const textSpan = document.createElement("span");
     const newList = document.createElement("li");
     const deleteBtn = document.createElement("button");
+    const checkboxTask = document.createElement("input");
+    checkboxTask.type = "checkbox";
+    checkboxTask.checked = task.done;
     deleteBtn.textContent = "Delete";
-    newList.textContent = task.text;
+    newList.appendChild(checkboxTask);
+    textSpan.textContent = task.text;
+    newList.appendChild(textSpan);
     taskList.appendChild(newList);
     newList.appendChild(deleteBtn);
+
+    if (checkboxTask.checked === true) {
+      newList.classList.add("done");
+    }
+
     deleteBtn.addEventListener("click", () => {
       tasks = tasks.filter((item) => item.id !== task.id);
+      renderTasks();
+    });
+
+    checkboxTask.addEventListener("change", () => {
+      task.done = !task.done;
       renderTasks();
     });
   });
