@@ -29,6 +29,7 @@ const renderTasks = () => {
     checkboxTask.type = "checkbox";
     checkboxTask.checked = task.done;
     deleteBtn.textContent = "Delete";
+    deleteBtn.classList.add("delete-btn");
     newList.appendChild(checkboxTask);
     textSpan.textContent = task.text;
     newList.appendChild(textSpan);
@@ -49,6 +50,14 @@ const renderTasks = () => {
       renderTasks();
     });
   });
+
+  if (tasks.length === 0) {
+    const emptyText = document.createElement("li");
+    emptyText.textContent = "No tasks yet";
+    emptyText.classList.add("no-task-text");
+    taskList.appendChild(emptyText);
+  }
+
   saveTasks();
 };
 
