@@ -1,10 +1,24 @@
 const inputText = document.querySelector(".task-text");
 const formEL = document.querySelector("#form");
 const taskList = document.querySelector(".list");
-let tasks = [
-  { id: 1, text: "do homework", done: true },
-  { id: 2, text: "workout", done: false },
-];
+let tasks;
+
+const saveTasks = () => {
+  const savedTasks = JSON.stringify(tasks);
+  localStorage.setItem("tasks", savedTasks);
+};
+
+const loadTasks = () => {
+  const saved = localStorage.getItem("tasks");
+  if (saved !== null) {
+    tasks = JSON.parse(saved);
+  } else {
+    tasks = [];
+  }
+};
+
+loadTasks();
+
 const renderTasks = () => {
   taskList.innerHTML = "";
   tasks.forEach((task) => {
@@ -35,7 +49,9 @@ const renderTasks = () => {
       renderTasks();
     });
   });
+  saveTasks();
 };
+
 renderTasks();
 
 const submitHandler = (event) => {
