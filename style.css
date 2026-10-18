@@ -80,6 +80,36 @@ form {
   font-size: 18px;
 }
 
+.filter {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  border: 2px solid transparent;
+  background-color: #12121f;
+  color: #f1f1f9;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  background-color: #4a4a6a;
+}
+
+.filter-btn.active {
+  background-color: #8b5cf6;
+  border: 2px solid #4a4a6a;
+}
+
+.filter-btn.active:hover {
+  background-color: #7c3aed;
+}
+
 .task-text {
   color: #f1f1f9;
   background-color: #12121f;
@@ -93,6 +123,7 @@ form {
   font-weight: 600;
   flex: 1;
   min-width: 0;
+  transition: 0.3s;
 }
 
 .task-text:focus {
@@ -161,7 +192,7 @@ input[type="checkbox"] {
   font-weight: 600;
 }
 
-.counter{
+.counter {
   font-size: 20px;
   color: #f1f1f9;
   font-weight: 600;
@@ -183,7 +214,7 @@ input[type="checkbox"] {
     padding: 10px;
   }
 
-  .text{
-    flex-basis: 100%
+  .text {
+    flex-basis: 100%;
   }
 }

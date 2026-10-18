@@ -3,6 +3,9 @@ const formEL = document.querySelector("#form");
 const taskList = document.querySelector(".list");
 const counter = document.querySelector(".counter");
 let tasks;
+let currentFilter = "all";
+let visibleTasks;
+const filterBtns = document.querySelectorAll(".filter-btn");
 
 const saveTasks = () => {
   const savedTasks = JSON.stringify(tasks);
@@ -18,11 +21,25 @@ const loadTasks = () => {
   }
 };
 
+const emptyTextFunction = (text) => {
+  const emptyText = document.createElement("li");
+  emptyText.textContent = text;
+  emptyText.classList.add("no-task-text");
+  taskList.appendChild(emptyText);
+};
+
 loadTasks();
 
 const renderTasks = () => {
   taskList.innerHTML = "";
-  tasks.forEach((task) => {
+  if (currentFilter === "all") {
+    visibleTasks = tasks;
+  } else if (currentFilter === "active") {
+    visibleTasks = tasks.filter((active) => active.done === false);
+  } else {
+    visibleTasks = tasks.filter((completed) => completed.done === true);
+  }
+  visibleTasks.forEach((task) => {
     const textSpan = document.createElement("span");
     const newList = document.createElement("li");
     const deleteBtn = document.createElement("button");
@@ -53,13 +70,16 @@ const renderTasks = () => {
   });
 
   if (tasks.length === 0) {
-    const emptyText = document.createElement("li");
-    emptyText.textContent = "No tasks yet";
-    emptyText.classList.add("no-task-text");
-    taskList.appendChild(emptyText);
+    emptyTextFunction("No tasks yet");
+  } else if (visibleTasks.length === 0) {
+    if (currentFilter === "active") {
+      emptyTextFunction("No active tasks");
+    } else if (currentFilter === "completed") {
+      emptyTextFunction("No completed tasks");
+    }
   }
-  
-   const taskLeft = tasks.filter((left) => left.done === false);
+
+  const taskLeft = tasks.filter((left) => left.done === false);
   let taskLeftNumber = taskLeft.length;
 
   if (tasks.length === 0) {
@@ -76,6 +96,17 @@ const renderTasks = () => {
 };
 
 renderTasks();
+
+filterBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    currentFilter = btn.dataset.filter;
+    filterBtns.forEach((A) => {
+      A.classList.remove("active");
+    });
+    btn.classList.add("active");
+    renderTasks();
+  });
+});
 
 const submitHandler = (event) => {
   event.preventDefault();
