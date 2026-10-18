@@ -11,6 +11,7 @@ A responsive To-Do App built with HTML, CSS and JavaScript, with tasks saved in 
 - Tasks are saved in localStorage and stay after a page refresh
 - Empty state message when there are no tasks
 - Dark theme with a responsive layout (desktop, tablet, mobile)
+- Remaining tasks counter
 
 ## Built With
 - HTML5
