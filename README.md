@@ -12,6 +12,7 @@ A responsive To-Do App built with HTML, CSS and JavaScript, with tasks saved in 
 - Empty state message when there are no tasks
 - Dark theme with a responsive layout (desktop, tablet, mobile)
 - Remaining tasks counter
+- Filter tasks by all, active and completed
 
 ## Built With
 - HTML5
@@ -23,6 +24,7 @@ A responsive To-Do App built with HTML, CSS and JavaScript, with tasks saved in 
 - Creating and updating DOM elements with JavaScript
 - Managing a list of tasks as an array of objects (add, delete with `filter`, toggle)
 - Saving and loading data with localStorage, `JSON.stringify` and `JSON.parse`
+- Categorizing with filter and length
 
 ## Run locally
 ```bash
