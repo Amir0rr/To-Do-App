@@ -20,7 +20,7 @@ A responsive to-do app built with HTML, CSS and JavaScript, with tasks saved in 
 ## What I Learned
 - Building responsive layout with Flexbox and media queries
 - Creating and updating DOM elements with JavaScript
-- - Managing a list of tasks as an array of objects (add, delete with `filter`, toggle)
+- Managing a list of tasks as an array of objects (add, delete with `filter`, toggle)
 - Saving and loading data with localStorage, `JSON.stringify` and `JSON.parse`
 
 ## Run locally
