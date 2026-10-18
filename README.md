@@ -1,8 +1,8 @@
 # To-Do App
 
-A responsive to-do app built with HTML, CSS and JavaScript, with tasks saved in localStorage
+A responsive To-Do App built with HTML, CSS and JavaScript, with tasks saved in localStorage
 
-🔗 **Live Demo:** https://amir0rr.github.io/to-do-app
+🔗 **Live Demo:** https://amir0rr.github.io/To-Do-App
 
 ![Desktop preview](images/screenshots/desktop.png)
 
@@ -25,6 +25,6 @@ A responsive to-do app built with HTML, CSS and JavaScript, with tasks saved in 
 
 ## Run locally
 ```bash
-git clone https://github.com/Amir0rr/to-do-app.git
+git clone https://github.com/Amir0rr/To-Do-App.git
 ```
 Then open `index.html` in your browser.
