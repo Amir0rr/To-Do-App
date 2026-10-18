@@ -1,6 +1,7 @@
 const inputText = document.querySelector(".task-text");
 const formEL = document.querySelector("#form");
 const taskList = document.querySelector(".list");
+const counter = document.querySelector(".counter");
 let tasks;
 
 const saveTasks = () => {
@@ -56,6 +57,19 @@ const renderTasks = () => {
     emptyText.textContent = "No tasks yet";
     emptyText.classList.add("no-task-text");
     taskList.appendChild(emptyText);
+  }
+  
+   const taskLeft = tasks.filter((left) => left.done === false);
+  let taskLeftNumber = taskLeft.length;
+
+  if (tasks.length === 0) {
+    counter.textContent = "";
+  } else if (taskLeftNumber === 1) {
+    counter.textContent = "1 Task left";
+  } else if (taskLeftNumber > 1) {
+    counter.textContent = taskLeftNumber + " Tasks left";
+  } else {
+    counter.textContent = "All done!";
   }
 
   saveTasks();
