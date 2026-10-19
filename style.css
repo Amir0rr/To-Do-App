@@ -110,7 +110,12 @@ form {
   background-color: #7c3aed;
 }
 
-.task-text {
+.todo-list {
+  width: 100%;
+}
+
+.task-text,
+.edit-input {
   color: #f1f1f9;
   background-color: #12121f;
   border: 1px solid #34344f;
@@ -164,6 +169,34 @@ form {
   background-color: #7c3aed;
 }
 
+.edit-input {
+  padding: 8px 5px;
+}
+
+.edit-input:focus {
+  border-color: #8b5cf6;
+}
+
+.edit-input:hover {
+  background-color: #4a4a6a;
+}
+
+.edit-btn {
+  background-color: #a592cf;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  transition: 0.2s;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.edit-btn:hover {
+  background-color: #9578d3;
+}
+
 .delete-btn {
   background-color: #f87171;
   cursor: pointer;
@@ -209,11 +242,23 @@ input[type="checkbox"] {
   }
 }
 
+@media (max-width: 550px) {
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 460px) {
   .task-btn {
     padding: 10px;
   }
-
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
   .text {
     flex-basis: 100%;
   }
