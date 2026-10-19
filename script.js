@@ -44,14 +44,18 @@ const renderTasks = () => {
     const newList = document.createElement("li");
     const deleteBtn = document.createElement("button");
     const checkboxTask = document.createElement("input");
+    const editBtn = document.createElement("button");
     checkboxTask.type = "checkbox";
     checkboxTask.checked = task.done;
     deleteBtn.textContent = "Delete";
     deleteBtn.classList.add("delete-btn");
+    editBtn.textContent = "Edit";
+    editBtn.classList.add("edit-btn");
     newList.appendChild(checkboxTask);
     textSpan.textContent = task.text;
     newList.appendChild(textSpan);
     taskList.appendChild(newList);
+    newList.appendChild(editBtn);
     newList.appendChild(deleteBtn);
 
     if (checkboxTask.checked === true) {
@@ -66,6 +70,40 @@ const renderTasks = () => {
     checkboxTask.addEventListener("change", () => {
       task.done = !task.done;
       renderTasks();
+    });
+
+    editBtn.addEventListener("click", () => {
+      let isFinished = false;
+      const editInput = document.createElement("input");
+      editInput.value = task.text;
+      editInput.classList.add("edit-input");
+      textSpan.replaceWith(editInput);
+      editInput.focus();
+      editInput.select();
+
+      editInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          isFinished = true;
+          let newText = editInput.value.trim();
+          if (newText === "") {
+            renderTasks();
+          } else {
+            task.text = newText;
+            renderTasks();
+          }
+        }
+        if (event.key === "Escape") {
+          isFinished = true;
+          renderTasks();
+        }
+      });
+      editInput.addEventListener("blur", () => {
+        if (isFinished === true) {
+          return;
+        } else {
+          renderTasks();
+        }
+      });
     });
   });
 
