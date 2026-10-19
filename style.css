@@ -223,6 +223,8 @@ input[type="checkbox"] {
 .no-task-text {
   font-size: 25px;
   font-weight: 600;
+  justify-content: center;
+  text-align: center;
 }
 
 .counter {
@@ -261,5 +263,8 @@ input[type="checkbox"] {
   }
   .text {
     flex-basis: 100%;
+  }
+  .no-task-text{
+    font-size: 20px;
   }
 }
