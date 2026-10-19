@@ -14,6 +14,7 @@ A responsive to-do app built with HTML, CSS and JavaScript, with tasks saved in 
 - Remaining tasks counter
 - Empty state messages that change with the selected filter
 - Dark theme with a responsive layout (desktop, tablet, mobile)
+- Edit tasks (Enter to save, Escape to cancel)
 
 ## Built With
 
@@ -29,6 +30,8 @@ A responsive to-do app built with HTML, CSS and JavaScript, with tasks saved in 
 - Saving and loading data with localStorage, `JSON.stringify` and `JSON.parse`
 - Filtering a list with a state variable, `dataset` and `classList`
 - Counting items with `filter` and `length`
+- Editing items in place with `replaceWith`, `focus` and `keydown` / `blur` events
+- Keeping the data as the single source of truth and re-rendering the UI from it
 
 ## Run Locally
 
